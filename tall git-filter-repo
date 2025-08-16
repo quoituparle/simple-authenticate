@@ -1,0 +1,23 @@
+[33mcommit 4fc6fdce3cf5f7793e3232b907e8d7385c5a69ac[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: quoituparle <daiyue.han@outlook.com>
+Date:   Sat Aug 16 16:45:48 2025 +0800
+
+    remove .env files
+
+[33mcommit c9ee2931404c7d578b3bf8263a1bbdb21bfdb91f[m
+Author: quoituparle <daiyue.han@outlook.com>
+Date:   Sat Aug 16 16:45:18 2025 +0800
+
+    remove sensitive
+
+[33mcommit 6114ddfaa857b3af0169b6f802c024fec45ba0c4[m
+Author: quoituparle <daiyue.han@outlook.com>
+Date:   Sat Aug 16 16:43:15 2025 +0800
+
+    update env
+
+[33mcommit d814090c4f612ef6eaa2eab3cb559908a23c6482[m
+Author: quoituparle <daiyue.han@outlook.com>
+Date:   Sat Aug 16 16:41:06 2025 +0800
+
+    first commit

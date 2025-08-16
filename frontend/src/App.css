@@ -1,0 +1,258 @@
+/* --- 1. 全局样式与字体引入 --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #8a2be2; /* 紫罗兰色，用作强调色 */
+  --primary-color-light: #9d4edd;
+  --error-color: #ff4d4d;
+  --text-color: #f0f0f0;
+  --bg-color-start: #1c1c3c;
+  --bg-color-end: #2a2a5a;
+  --container-bg: rgba(255, 255, 255, 0.1);
+  --input-bg: rgba(0, 0, 0, 0.2);
+  --success-color: #28a745;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  background: linear-gradient(135deg, var(--bg-color-start), var(--bg-color-end));
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- 2. 动画定义 --- */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- 3. 主容器与表单布局 --- */
+.container {
+  width: 500px;
+  max-width: 420px;
+  padding: 40px;
+  background: var(--container-bg);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out;
+  
+  /* --- 新增代码 --- */
+  min-height: 640px; /* 为容器设置一个最小高度 */
+  display: flex; /* 使用 flex 布局更好地控制内部对齐 */
+  flex-direction: column;
+  justify-content: center; /* 垂直居中内容 */
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: rgba(240, 240, 240, 0.9);
+}
+
+
+.submit-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.submit-form form div {
+  text-align: left;
+}
+
+/* --- 4. 表单元素样式 (输入框, 标签, 按钮) --- */
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-color-light));
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.resend-btn {
+  background-color: transparent;
+  border: 1px solid var(--primary-color-light);
+  color: var(--primary-color-light);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.resend-btn:hover:not(:disabled) {
+  background-color: rgba(157, 78, 221, 0.2); /* 主题色的半透明背景 */
+  color: white;
+}
+
+.resend-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.success {
+  color: white;
+  background-color: rgba(40, 167, 69, 0.4);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  animation: fadeIn 0.5s ease;
+  border: 1px solid var(--success-color);
+  text-align: center;
+}
+
+
+/* --- 5. 错误提示与链接样式 --- */
+.error,
+.pass-error {
+  color: white;
+  background-color: rgba(255, 77, 77, 0.4);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: -10px; /* 减少与上方元素的间距 */
+  margin-bottom: 10px;
+  max-width: 3500px;
+  font-size: 0.9rem;
+  animation: fadeIn 0.5s ease;
+  border: 1px solid var(--error-color);
+}
+
+.pass-error {
+  margin-top: 5px; /* 密码错误提示与输入框间距 */
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 25px;
+  font-size: 0.9rem;
+}
+
+p a {
+  color: var(--primary-color-light);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+p a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+
+/* --- 6. 响应式设计 --- */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px;
+    margin: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
